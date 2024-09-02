@@ -1,0 +1,112 @@
+/* Global Styles */
+body {
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Text color */
+  font-family: Arial, sans-serif;
+}
+
+/* Layout Styles */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Left and right halves */
+  min-height: 100vh;
+}
+
+.left-half {
+  display: none; /* Hide on mobile */
+}
+
+.right-half {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .left-half {
+    display: block; /* Show left half on laptop */
+    background-color: #1e1e1e;
+  }
+}
+
+/* Tab and Gallery Container Styles */
+.tab-container, .gallery-container {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tab Styles */
+.custom-tab {
+  position: relative;
+  background-color: #333;
+  color: white;
+  border-radius: 20px;
+  margin: 0 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.custom-tab:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.custom-tab:hover:before,
+.custom-tab.active:before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.tab-content-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Gallery Styles */
+.gallery-title {
+  background-color: #333;
+  border-radius: 15px;
+  padding: 10px 20px;
+  color: white;
+}
+
+.add-image-btn, .carousel-nav {
+  border-radius: 20px;
+  margin: 0 5px;
+}
+
+/* Gallery Image Hover Effect */
+.gallery-image {
+  background-color: #444;
+  height: 200px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%); /* Start in black and white */
+  transition: filter 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image:hover {
+  filter: grayscale(0%); /* Reveal the color */
+  transform: scale(1.05); /* Optional zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+}
+
+/* Align Right Content for Recommended Tab */
+.right-aligned-content {
+  text-align: right;
+}
